@@ -20,6 +20,7 @@ def text_to_pdf(input_text, output_pdf):
 """
 
 def create_colored_bmp(filename, width, height, color_index,input_text):
+    
     try:
         y=30;
         # Verifica se o índice da cor está no intervalo válido (0-15)
@@ -37,9 +38,14 @@ def create_colored_bmp(filename, width, height, color_index,input_text):
             iii=ImageDraw.Draw(image)
             hh=input_text.split("\n")
             for j in range(len(hh)):
-                print(hh[j])
-                iii.text((y, 30),hh[j])
-            y=y+40
+                
+                try:
+                    iii.text((y, 30),hh[j])
+                    y=y+20
+                    
+                except:
+                    xgate=""
+            
             # Salva a imagem como um arquivo BMP de 24 bits
             image.save(filename, "BMP")
 
