@@ -1,23 +1,7 @@
 from PIL import Image,ImageDraw,ImageFont,ImageColor
 import sys
 #pip install pillow
-"""
-def text_to_pdf(input_text, output_pdf):
-    y=100;
-    try:
-        c = canvas.Canvas(output_pdf, pagesize=letter)
-        hh=input_text.split("\n")
-        for j in range(len(hh)):
-            print(hh[j])
-            c.drawString(y, 700,hh[j])
-            y=y+40
-        c.save()
 
-        print(f"Arquivo PDF gerado com sucesso: {output_pdf}")
-
-    except Exception as e:
-        print(f"Ocorreu um erro: {e}")
-"""
 
 def create_colored_bmp(filename, width, height, color_index,input_text):
     
@@ -32,7 +16,7 @@ def create_colored_bmp(filename, width, height, color_index,input_text):
                 (85, 85, 85), (85, 85, 255), (85, 255, 85), (85, 255, 255),
                 (255, 85, 85), (255, 85, 255), (255, 255, 85), (255, 255, 255)
             ]
-
+            
             # Cria uma imagem em branco com as dimensões especificadas
             image = Image.new("RGB", (width, height), vga_colors[color_index])
             iii=ImageDraw.Draw(image)
@@ -40,7 +24,7 @@ def create_colored_bmp(filename, width, height, color_index,input_text):
             for j in range(len(hh)):
                 
                 try:
-                    iii.text((y, 30),hh[j])
+                    iii.text(( 30,y),hh[j])
                     y=y+20
                     
                 except:
